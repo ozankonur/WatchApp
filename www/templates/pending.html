@@ -1,0 +1,31 @@
+<ion-view style="" id="pending" title="Pending Posts">
+    <ion-content scroll="true" padding="true"  class=" manual-remove-top-padding has-header " ng-init="loadPost()">
+    	
+		<div ng-repeat="item in Aposts">
+			<div class="list card" ng-if="!item.postAdminChecked">
+				<div class="item item-avatar">
+					<img ng-if="user.image" src="{{user.image}}">
+					<img ng-if="!user.image" src="img/defaultuser.png">
+					<h2 class="marginfiveTop">{{user.username}}</h2>
+					
+				</div>
+			<div class="item item-text-wrap">
+			<p>{{item.postText}}</p>
+			</div>
+				<div class="item item-image" ng-if="item.postImage">
+					<img src="{{item.postImage}}">
+				</div>
+				<div class="item">
+
+					<div class="row">
+						<div class="col col-50"><h3>Shared for:</h3></div>
+						<div class="col"><i ng-class="item.facebook ? 'custom-icon-facebook' : 'custom-icon-nofacebook'" class="icon ion-social-facebook"></i></div>
+						<div class="col"><i ng-class="item.twitter ? 'custom-icon-twitter' : 'custom-icon-notwitter'"  class="icon ion-social-twitter"></i></div>
+						<div class="col"><i ng-class="item.instagram ? 'custom-icon-instagram' : 'custom-icon-noinstagram'"  class="icon ion-social-instagram-outline"></i></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+    </ion-content>
+</ion-view>

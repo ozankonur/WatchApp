@@ -1,0 +1,38 @@
+<ion-view style="" id="page8" title="CreatePost">
+  <ion-content class="has-header " padding="true" scroll="true">
+<form name="createPostForm" class="list" id="signup-form2">
+    <div class="card ">
+
+      <div class="profile createPostCard">
+        <div class="name">What would you like to share</div>
+      </div>
+        <div class="item item-body">
+         <textarea class="textareaBody" placeholder="Write something.." ng-model="post.text" empty-to-null autofocus></textarea>
+         <p>
+
+          <div class="row">
+            <div class="doCenter fullWidth"><a class="button button-icon icon ion-location"></a></div>
+            <div class="doCenter fullWidth"><a class="button button-icon icon ion-image" ng-click="getPhoto()"></a></div>
+          </div>
+          <br>
+          <div class="item">
+            <div class="row">
+              <div class="col col-50"><h3>Sharing for:</h3></div>
+              <div class="col doCenter" ng-click="changeClassF()"><h3><i ng-class="facebookStyle" class="icon ion-social-facebook custom-icon-facebook"></i></h3></div>
+              <div class="col doCenter" ng-click="changeClassT()"><h3><i ng-class="twitterStyle" class="icon ion-social-twitter"></i></h3></div>
+              <div class="col doCenter" ng-click="changeClassI()"><h3><i ng-class="instagramStyle" class="icon ion-social-instagram-outline"></i></h3></div>
+            </div>
+          </div>
+          <br>
+          <button class="button buttonCreatePost" ng-click="createPost(createPostForm,post)">
+            Send to Watcher
+          </button>
+		  <br>
+		  <br>
+		  <button class="button buttonCreatePost" ng-click="goShared()">Cancel</button>
+        </p>
+      </div>
+  </div>
+</form>
+</ion-content>
+</ion-view>

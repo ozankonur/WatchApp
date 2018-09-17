@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
+
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+
+
+<!--=========================================#1. Custom Header Part====================================-->
+
+  <!-- Ionic Meterial Header
+  <script src="lib/ionic-material/dist/ionic.material.min.js"></script>
+  <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
+  <link href="lib/ionic-material/dist/ionic.material.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=RobotoDraft%3A400%2C500%2C700%2C400italic" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+-->
+
+
+  <!-- AngularFire -->
+    <script type="text/javascript" src="lib/ionic/js/firebase.js"></script>
+	<script type="text/javascript" src="lib/ionic/js/angular/angular.js"></script>
+	<script type="text/javascript" src="lib/ionic/js/angularfire.min.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+<!-- ng cordova js -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBeUn6SdM60BXYBCsJd5gzNrACAdRFVZlo",
+    authDomain: "watchapp-7e459.firebaseapp.com",
+    databaseURL: "https://watchapp-7e459.firebaseio.com",
+    storageBucket: "watchapp-7e459.appspot.com",
+    messagingSenderId: "506739534187"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <style type="text/css">
+    .platform-ios .manual-ios-statusbar-padding{
+      padding-top:20px;
+    }
+    .manual-remove-top-padding{
+      padding-top:0px; 
+    }
+    .manual-remove-top-padding .scroll{
+      padding-top:0px !important;
+    }
+    ion-list.manual-list-fullwidth div.list, .list.card.manual-card-fullwidth {
+      margin-left:-10px;
+      margin-right:-10px;
+    }
+    ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidth > .item {
+      border-radius:0px;
+      border-left:0px;
+      border-right: 0px;
+    }
+  </style>
+
+  <script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/routes.js"></script>
+  
+  
+  <script src="js/directives.js"></script>
+  
+  <script src="js/services.js"></script>
+  
+
+    <!-- Only required for Tab projects w/ pages in multiple tabs 
+    <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
+  -->
+
+</head>
+<body ng-app="app" animation="slide-left-right-ios7">
+  <div style="">
+    <ion-side-menus data-componentid="side-menu21" style="" ng-controller="indexCtrl" enable-menu-with-back-views="false">
+      <ion-side-menu-content>
+        <ion-nav-bar class="bar-stable">
+          <ion-nav-back-button></ion-nav-back-button>
+          <ion-nav-buttons side="left">
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+          </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view></ion-nav-view>
+      </ion-side-menu-content>
+      <ion-side-menu side="left" id="side-menu21">
+        <ion-header-bar class="bar-profile">
+          <div class="profile">
+			<img ng-if="user.image" class="profile-picture" ng-click="setProfileImage()" src="{{user.image}}">
+			<img ng-if="!user.image" class="profile-picture" ng-click="setProfileImage()" src="img/defaultuser.png">
+            <div class="name">{{user.username}}</div>
+            <div class="mail">{{user_info.email}}</div>
+          </div>
+        </ion-header-bar>
+        <ion-content ng-controller="menuCtrl" padding="false" class="side-menu-left has-header " scroll="false">
+
+          <div class="list">
+
+            <a menu-close class="item item-icon-left" href="#/tabsCtrl/shared">
+              <i class="icon ion-pound"></i>
+              Shared Posts
+            </a>
+			<!--
+            <a menu-close class="item item-icon-left" href="#/tabsCtrl/schedule">
+              <i class="icon ion-clock"></i>
+              Schedule Post
+            </a>
+			
+            <a menu-close class="item item-icon-left" href="#/drafts">
+              <i class="icon ion-email-unread"></i>
+              Drafts
+            </a>
+			
+			-->
+            <a menu-close class="item item-icon-left" href="#/tabsCtrl/pending">
+              <i class="icon ion-clipboard"></i>
+              Pending Posts
+            </a>
+            <a menu-close class="item item-icon-left" ng-if="user.admin" href="#/admin">
+              <i class="icon ion-pin"></i>
+              Admin Panel
+            </a>
+            <a menu-close class="item item-icon-left" ng-click="logout()">
+              <i class="icon ion-log-out"></i>
+              Sign Out
+            </a>
+
+          </div>
+
+        </ion-content>
+      </ion-side-menu>
+    </ion-side-menus>
+  </div>
+</body>
+</html>
